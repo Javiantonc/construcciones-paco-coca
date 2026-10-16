@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - Construcciones Paco Coca</title>
+    <meta name="description" content="Conoce al equipo profesional de Construcciones Paco Coca, expertos en construcción con años de experiencia.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="CONSTRUCCIONES PACO COCA" />
+<link rel="manifest" href="site.webmanifest" />
+    <style>
+        /* Estilos base del index.html */
+        :root {
+            --primary: #1a5276;
+            --secondary: #e67e22;
+            --dark: #17202a;
+            --light: #f8f9f9;
+            --accent: #2980b9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(23, 32, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: var(--dark);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            color: white;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Team Section */
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            gap: 50px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-member-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .team-member:hover .team-member-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-info {
+            flex: 1.5;
+        }
+        
+        .team-member-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .team-member-info .position {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: block;
+            font-size: 1.1rem;
+        }
+        
+        .team-member-info p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .team-member {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .team-member-image, .team-member-info {
+                flex: 1;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                transition: all 0.3s;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .team-member {
+                padding: 20px;
+            }
+            
+            .team-member-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+
+        #logo-img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="imagen/logo.png" alt="Logo Construcciones Paco Coca" id="logo-img">
+                <div class="logo-text">
+                    <h1>CONSTRUCCIONES PACO COCA</h1>
+                    <span>Construyendo sueños desde 1982</span>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="valoraciones.html">Valoraciones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nuestro Equipo</h1>
+                <p>Profesionales altamente cualificados comprometidos con la excelencia en cada proyecto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conoce a Nuestro Equipo</h2>
+                <p>Expertos en construcción con años de experiencia en el sector</p>
+            </div>
+            
+            <!-- Miembro 1 -->
+            <div class="team-member">
+                <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Paco Coca - Fundador">
+                </div>
+                <div class="team-member-info">
+                    <h3>Paco Coca</h3>
+                    <span class="position">Fundador y Director General</span>
+                    <p>Con más de 30 años de experiencia en el sector de la construcción, Paco fundó la empresa en 1982 con la visión de crear una compañía basada en la calidad, la honestidad y el compromiso con los clientes. Ingeniero Civil de formación, ha dirigido más de 200 proyectos de diversa envergadura.</p>
+                    <p>Su liderazgo y conocimiento técnico son el pilar fundamental de nuestra empresa. Bajo su dirección, Construcciones Paco Coca ha obtenido numerosos reconocimientos por la calidad de sus obras.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Gestión de proyectos</span>
+                        <span class="skill-tag">Planificación estratégica</span>
+                        <span class="skill-tag">Relaciones con clientes</span>
+                        <span class="skill-tag">Desarrollo de negocio</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 2 -->
+            <div class="team-member">
+                <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="María López - Directora de Proyectos">
+                </div>
+                <div class="team-member-info">
+                    <h3>María López</h3>
+                    <span class="position">Directora de Proyectos</span>
+                    <p>María se unió a nuestro equipo en 2005 y desde entonces ha dirigido con éxito más de 50 proyectos de construcción, incluyendo complejos residenciales y edificios corporativos. Arquitecta titulada con un máster en Gestión de Proyectos de Construcción.</p>
+                    <p>Su atención al detalle y su capacidad para resolver problemas complejos hacen que sea una pieza clave en nuestro equipo. María supervisa todos los aspectos de la ejecución de proyectos, asegurando que cumplan con los más altos estándares de calidad.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Gestión de equipos</span>
+                        <span class="skill-tag">Control de calidad</span>
+                        <span class="skill-tag">Planificación de obras</span>
+                        <span class="skill-tag">Diseño arquitectónico</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 3 -->
+            <div class="team-member">
+                <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="Carlos Méndez - Jefe de Obra">
+                </div>
+                <div class="team-member-info">
+                    <h3>Carlos Méndez</h3>
+                    <span class="position">Jefe de Obra</span>
+                    <p>Con 15 años de experiencia en Construcciones Paco Coca, Carlos es responsable de supervisar la ejecución de las obras en el terreno. Técnico Superior en Obras de Edificación, combina conocimientos técnicos con una excelente capacidad de gestión de equipos.</p>
+                    <p>Su experiencia práctica y su enfoque meticuloso garantizan que cada proyecto se complete según lo planeado, cumpliendo con los plazos y presupuestos establecidos. Carlos es conocido por su habilidad para anticipar y resolver problemas antes de que afecten al proyecto.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Coordinación de equipos</span>
+                        <span class="skill-tag">Seguridad laboral</span>
+                        <span class="skill-tag">Control de plazos</span>
+                        <span class="skill-tag">Ejecución de obras</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 4 -->
+            <div class="team-member">
+                <div class="team-member-image">
+                    <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Ana Torres - Directora Financiera">
+                </div>
+                <div class="team-member-info">
+                    <h3>Ana Torres</h3>
+                    <span class="position">Directora Financiera</span>
+                    <p>Ana dirige el departamento financiero de la empresa desde 2010. Licenciada en Administración y Dirección de Empresas con especialización en Finanzas Corporativas, es responsable de la gestión económica de todos nuestros proyectos.</p>
+                    <p>Su capacidad para optimizar recursos y su enfoque estratégico han contribuido significativamente al crecimiento sostenible de la empresa. Ana supervisa los presupuestos, los costes y las inversiones, asegurando la viabilidad económica de cada proyecto.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Gestión presupuestaria</span>
+                        <span class="skill-tag">Análisis financiero</span>
+                        <span class="skill-tag">Control de costes</span>
+                        <span class="skill-tag">Planificación estratégica</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="index.html#services">Servicios</a>
+                <a href="index.html#projects">Proyectos</a>
+                <a href="valoraciones">Valoraciones</a>
+                <a href="index.html#contact">Contacto</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 1982 Construcciones Paco Coca | Todos los derechos reservados | Powered Javier Antón</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad - Construcciones Paco Coca</title>
+    <meta
+      name="description"
+      content="Política de Privacidad de Construcciones Paco Coca - Cómo protegemos y gestionamos tus datos personales."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="CONSTRUCCIONES PACO COCA"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      :root {
+        --primary: #1a5276;
+        --secondary: #e67e22;
+        --dark: #17202a;
+        --light: #f8f9f9;
+        --accent: #2980b9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        padding-top: 140px; /* Ajuste para header + ticker */
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Header */
+      header {
+        background-color: rgba(23, 32, 42, 0.9);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      header.scrolled {
+        background-color: var(--dark);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        height: 80px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+        transition: transform 0.3s;
+      }
+
+      .logo:hover img {
+        transform: scale(1.05);
+      }
+
+      .logo-text {
+        color: white;
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .logo-text span {
+        color: var(--secondary);
+        font-size: 0.9rem;
+        display: block;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+        position: relative;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        font-size: 1rem;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+        transition: transform 0.3s;
+      }
+
+      .mobile-menu-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* Ticker infinito mejorado */
+      .ticker-container {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        color: white;
+        padding: 10px 0;
+        z-index: 999;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 50px;
+      }
+
+      .ticker-wrapper {
+        display: flex;
+        width: 100%;
+      }
+
+      .ticker-content {
+        display: flex;
+        white-space: nowrap;
+        will-change: transform;
+        padding-right: 100%;
+      }
+
+      .ticker-item {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .ticker-icon {
+        margin-right: 10px;
+        font-size: 1.3rem;
+      }
+
+      /* Privacy Section */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 4px;
+        background: var(--secondary);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .privacy-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .privacy-section {
+        margin-bottom: 50px;
+      }
+
+      .privacy-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 10px;
+      }
+
+      .privacy-section p {
+        margin-bottom: 20px;
+        color: #555;
+        text-align: justify;
+      }
+
+      .privacy-section ul {
+        margin-left: 30px;
+        margin-bottom: 20px;
+      }
+
+      .privacy-section li {
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      .privacy-section strong {
+        color: var(--primary);
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--secondary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: 2px solid var(--secondary);
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 15px;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: var(--dark);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        gap: 15px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .copyright {
+        color: #aaa;
+        font-size: 0.9rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 100;
+      }
+
+      .whatsapp-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        font-size: 30px;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-icon:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* Logo */
+      #logo-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 120px;
+        }
+
+        .header-container {
+          padding: 10px 0;
+          height: 70px;
+        }
+
+        .ticker-container {
+          top: 70px;
+          height: 50px;
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: var(--dark);
+          transition: all 0.3s;
+          z-index: 999;
+          padding-top: 30px;
+          overflow-y: auto;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          padding: 20px;
+          align-items: center;
+        }
+
+        nav ul li {
+          margin: 15px 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        nav ul li a {
+          font-size: 1.2rem;
+          padding: 10px 0;
+          display: block;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .ticker-item {
+          font-size: 0.9rem;
+          margin-right: 30px;
+        }
+
+        .ticker-icon {
+          font-size: 1rem;
+          margin-right: 8px;
+        }
+
+        .logo-text h1 {
+          font-size: 1.3rem;
+        }
+
+        .logo-text span {
+          font-size: 0.8rem;
+        }
+
+        #logo-img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        body {
+          padding-top: 110px;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .header-container {
+          height: 60px;
+        }
+
+        .ticker-container {
+          top: 60px;
+          height: 50px;
+        }
+
+        .logo-text h1 {
+          font-size: 1.1rem;
+        }
+
+        .logo-text span {
+          font-size: 0.7rem;
+        }
+
+        #logo-img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+
+        .section-title h2::after {
+          width: 50px;
+          height: 3px;
+          bottom: -8px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .logo-text h1 {
+          font-size: 1rem;
+        }
+
+        .logo-text span {
+          font-size: 0.6rem;
+        }
+
+        #logo-img {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <img
+            src="imagen/logo.png"
+            alt="Logo Construcciones Paco Coca"
+            id="logo-img"
+          />
+          <div class="logo-text">
+            <h1>CONSTRUCCIONES PACO COCA</h1>
+            <span>Construyendo sueños desde 1982</span>
+          </div>
+        </a>
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Menú móvil"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="valoraciones.html">Valoraciones</a></li>
+            <li><a href="privacidad.html">Privacidad</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Ticker -->
+    <div class="ticker-container">
+      <div class="ticker-wrapper">
+        <div class="ticker-content" id="ticker-content">
+          <div class="ticker-item">
+            <span class="ticker-icon">📱</span> Síguenos en nuestras redes
+            sociales
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">🔨</span> Pide presupuesto sin compromiso
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">🏠</span> Más de 40 años construyendo
+            sueños
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">⭐</span> Calidad garantizada en todos
+            nuestros proyectos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Section -->
+    <section class="section" id="privacy">
+      <div class="container">
+        <div class="section-title">
+          <h2>Política de Privacidad</h2>
+        </div>
+        <div class="privacy-content">
+          <div class="privacy-section">
+            <h3>1. Información General</h3>
+            <p>
+              En <strong>Construcciones Paco Coca</strong>, nos tomamos muy en
+              serio la privacidad de nuestros clientes y usuarios. Esta Política
+              de Privacidad describe cómo recopilamos, utilizamos y protegemos
+              la información personal que usted nos proporciona a través de
+              nuestro sitio web y otros canales de comunicación.
+            </p>
+            <p>
+              Al utilizar nuestros servicios o proporcionarnos sus datos, usted
+              acepta los términos de esta Política de Privacidad.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>2. Información que Recopilamos</h3>
+            <p>Podemos recopilar los siguientes tipos de información:</p>
+            <ul>
+              <li>
+                <strong>Información de contacto:</strong> nombre, dirección de
+                correo electrónico, número de teléfono, dirección postal.
+              </li>
+              <li>
+                <strong>Información del proyecto:</strong> detalles sobre su
+                proyecto de construcción, presupuesto, ubicación y requisitos
+                específicos.
+              </li>
+              <li>
+                <strong>Información de navegación:</strong> datos sobre cómo
+                utiliza nuestro sitio web, incluyendo su dirección IP, tipo de
+                navegador, páginas visitadas y tiempo de permanencia.
+              </li>
+              <li>
+                <strong>Información de comunicaciones:</strong> correspondencia
+                que mantenga con nosotros a través de correo electrónico,
+                teléfono o formularios de contacto.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h3>3. Uso de la Información</h3>
+            <p>
+              Utilizamos la información recopilada para los siguientes fines:
+            </p>
+            <ul>
+              <li>
+                Proporcionar nuestros servicios de construcción y responder a
+                sus consultas.
+              </li>
+              <li>Elaborar presupuestos y propuestas personalizadas.</li>
+              <li>Gestionar la relación contractual con nuestros clientes.</li>
+              <li>
+                Enviar comunicaciones relacionadas con nuestros servicios,
+                incluyendo actualizaciones y ofertas promocionales (si ha dado
+                su consentimiento).
+              </li>
+              <li>Mejorar nuestro sitio web y servicios.</li>
+              <li>Cumplir con obligaciones legales y regulatorias.</li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h3>4. Base Legal para el Tratamiento</h3>
+            <p>
+              El tratamiento de sus datos personales se basa en las siguientes
+              bases legales:
+            </p>
+            <ul>
+              <li>
+                <strong>Ejecución de un contrato:</strong> cuando los datos son
+                necesarios para prestar nuestros servicios.
+              </li>
+              <li>
+                <strong>Consentimiento:</strong> cuando nos ha dado su permiso
+                explícito para el tratamiento de sus datos.
+              </li>
+              <li>
+                <strong>Interés legítimo:</strong> para mejorar nuestros
+                servicios y comunicarnos con clientes existentes sobre servicios
+                relacionados.
+              </li>
+              <li>
+                <strong>Cumplimiento de obligaciones legales:</strong> cuando
+                sea necesario para cumplir con la legislación aplicable.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h3>5. Compartición de Información</h3>
+            <p>
+              No vendemos, comercializamos ni transferimos de otro modo su
+              información personal a terceros, excepto en las siguientes
+              circunstancias:
+            </p>
+            <ul>
+              <li>
+                <strong>Proveedores de servicios:</strong> podemos compartir
+                información con terceros que nos prestan servicios, como
+                empresas de hosting, herramientas de análisis web o asesores
+                legales, que están obligados a mantener la confidencialidad de
+                la información.
+              </li>
+              <li>
+                <strong>Cumplimiento legal:</strong> cuando sea necesario para
+                cumplir con la ley, regulaciones, procesos legales o solicitudes
+                gubernamentales.
+              </li>
+              <li>
+                <strong>Protección de derechos:</strong> para proteger los
+                derechos, propiedad o seguridad de Construcciones Paco Coca,
+                nuestros clientes u otros.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h3>6. Conservación de Datos</h3>
+            <p>
+              Conservaremos sus datos personales durante el tiempo necesario
+              para cumplir con los fines para los que fueron recopilados,
+              incluyendo el cumplimiento de obligaciones legales, contables o de
+              reporting. Los criterios específicos de conservación son:
+            </p>
+            <ul>
+              <li>
+                <strong>Datos de clientes:</strong> mientras dure la relación
+                contractual y durante los plazos legales establecidos para la
+                conservación de documentación.
+              </li>
+              <li>
+                <strong>Datos de prospectos:</strong> durante el tiempo
+                necesario para gestionar su consulta y, si ha dado su
+                consentimiento, para enviarle información sobre nuestros
+                servicios.
+              </li>
+              <li>
+                <strong>Datos de navegación:</strong> según lo establecido por
+                las cookies y tecnologías similares.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h3>7. Sus Derechos</h3>
+            <p>
+              De acuerdo con la legislación de protección de datos, usted tiene
+              los siguientes derechos:
+            </p>
+            <ul>
+              <li>
+                <strong>Derecho de acceso:</strong> a obtener confirmación de si
+                tratamos sus datos y acceder a ellos.
+              </li>
+              <li>
+                <strong>Derecho de rectificación:</strong> a solicitar la
+                corrección de datos inexactos o incompletos.
+              </li>
+              <li>
+                <strong>Derecho de supresión:</strong> a solicitar la
+                eliminación de sus datos cuando ya no sean necesarios para los
+                fines para los que fueron recopilados.
+              </li>
+              <li>
+                <strong>Derecho de oposición:</strong> a oponerse al tratamiento
+                de sus datos en determinadas circunstancias.
+              </li>
+              <li>
+                <strong>Derecho a la limitación del tratamiento:</strong> a
+                solicitar que suspendamos el tratamiento de sus datos en ciertos
+                casos.
+              </li>
+              <li>
+                <strong>Derecho a la portabilidad de datos:</strong> a recibir
+                sus datos en un formato estructurado y transmitirlos a otro
+                responsable.
+              </li>
+              <li>
+                <strong>Derecho a retirar el consentimiento:</strong> cuando el
+                tratamiento se base en su consentimiento.
+              </li>
+            </ul>
+            <p>
+              Para ejercer estos derechos, puede contactarnos a través de los
+              medios indicados en la sección de Contacto.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>8. Seguridad de los Datos</h3>
+            <p>
+              Implementamos medidas de seguridad técnicas y organizativas
+              apropiadas para proteger sus datos personales contra accesos no
+              autorizados, alteración, divulgación o destrucción. Estas medidas
+              incluyen:
+            </p>
+            <ul>
+              <li>Cifrado de datos sensibles.</li>
+              <li>Control de acceso basado en roles.</li>
+              <li>Revisiones regulares de seguridad.</li>
+              <li>Formación del personal en protección de datos.</li>
+            </ul>
+            <p>
+              A pesar de nuestros esfuerzos, ninguna medida de seguridad es
+              infalible, por lo que no podemos garantizar la seguridad absoluta
+              de la información transmitida a través de Internet.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>9. Cookies y Tecnologías Similares</h3>
+            <p>
+              Nuestro sitio web utiliza cookies y tecnologías similares para
+              mejorar su experiencia de usuario, analizar el tráfico del sitio y
+              personalizar el contenido. Las cookies son pequeños archivos de
+              texto que se almacenan en su dispositivo cuando visita nuestro
+              sitio.
+            </p>
+            <p>
+              Puede configurar su navegador para rechazar todas las cookies o
+              para indicar cuándo se está enviando una cookie. Sin embargo, si
+              desactiva las cookies, es posible que algunas funciones de nuestro
+              sitio web no funcionen correctamente.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>10. Enlaces a Sitios de Terceros</h3>
+            <p>
+              Nuestro sitio web puede contener enlaces a sitios web de terceros.
+              Esta Política de Privacidad solo se aplica a nuestro sitio, por lo
+              que le recomendamos que revise las políticas de privacidad de
+              cualquier sitio web que visite a través de enlaces desde nuestro
+              sitio.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>11. Cambios en esta Política de Privacidad</h3>
+            <p>
+              Nos reservamos el derecho de modificar esta Política de Privacidad
+              en cualquier momento. Cualquier cambio será publicado en esta
+              página con la fecha de actualización. Le recomendamos que revise
+              periódicamente esta Política para estar informado sobre cómo
+              protegemos su información.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h3>12. Contacto</h3>
+            <p>
+              Si tiene alguna pregunta sobre esta Política de Privacidad o desea
+              ejercer sus derechos de protección de datos, puede contactarnos a
+              través de:
+            </p>
+            <ul>
+              <li>
+                <strong>Correo electrónico:</strong> paco_coca@hotmail.com
+              </li>
+              <li><strong>Teléfono:</strong> +34 616 385 068</li>s
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="servicios.html">Servicios</a>
+          <a href="proyectos.html">Proyectos</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="privacidad.html">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 1982 Construcciones Paco Coca | Todos los derechos reservados
+            | Powered Javier Antón
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float"
+      <a
+        href="https://wa.me/34616385068"
+        target="_blank"
+        class="whatsapp-icon"
+        aria-label="Contactar por WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <script>
+      // Mobile Menu
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const nav = document.getElementById("nav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = nav.classList.contains("active")
+          ? "hidden"
+          : "";
+      });
+
+      // Cerrar menú al hacer clic en un enlace
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          document.body.style.overflow = "";
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Improved infinite ticker animation
+      function setupTicker() {
+        const tickerContent = document.getElementById("ticker-content");
+        if (!tickerContent) return;
+
+        // Clone items for seamless looping
+        const items = document.querySelectorAll(".ticker-item");
+        items.forEach((item) => {
+          const clone = item.cloneNode(true);
+          tickerContent.appendChild(clone);
+        });
+
+        // Calculate total width of all items
+        let totalWidth = 0;
+        items.forEach((item) => {
+          totalWidth += item.offsetWidth + 50; // 50px margin-right
+        });
+
+        // Create animation
+        const keyframes = `
+                @keyframes ticker {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-${totalWidth}px); }
+                }
+            `;
+
+        // Add animation to style element
+        const style = document.createElement("style");
+        style.innerHTML = keyframes;
+        document.head.appendChild(style);
+
+        // Apply animation to ticker content
+        tickerContent.style.animation = `ticker ${
+          items.length * 5
+        }s linear infinite`;
+
+        // Reset animation when it ends to create infinite loop
+        tickerContent.addEventListener("animationiteration", () => {
+          // This ensures smooth continuous animation
+        });
+      }
+
+      // Initialize ticker when DOM is loaded
+      document.addEventListener("DOMContentLoaded", setupTicker);
+    </script>
+  </body>
+</html>

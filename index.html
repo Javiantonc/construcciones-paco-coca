@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Construcciones Paco Coca - Soluciones Integrales en Construcción
+    </title>
+    <meta
+      name="description"
+      content="Construcciones Paco Coca - Líderes en construcción civil, reformas y proyectos arquitectónicos con más de 20 años de experiencia."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="CONSTRUCCIONES PACO COCA"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      :root {
+        --primary: #1a5276;
+        --secondary: #e67e22;
+        --dark: #17202a;
+        --light: #f8f9f9;
+        --accent: #2980b9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        padding-top: 140px; /* Ajuste para header + ticker */
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Header */
+      header {
+        background-color: rgba(23, 32, 42, 0.9);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      header.scrolled {
+        background-color: var(--dark);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        height: 80px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+        transition: transform 0.3s;
+      }
+
+      .logo:hover img {
+        transform: scale(1.05);
+      }
+
+      .logo-text {
+        color: white;
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .logo-text span {
+        color: var(--secondary);
+        font-size: 0.9rem;
+        display: block;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+        position: relative;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        font-size: 1rem;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+        transition: transform 0.3s;
+      }
+
+      .mobile-menu-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* Ticker infinito mejorado */
+      .ticker-container {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        color: white;
+        padding: 10px 0;
+        z-index: 999;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 50px;
+      }
+
+      .ticker-wrapper {
+        display: flex;
+        width: 100%;
+      }
+
+      .ticker-content {
+        display: flex;
+        white-space: nowrap;
+        will-change: transform;
+        padding-right: 100%;
+      }
+
+      .ticker-item {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .ticker-icon {
+        margin-right: 10px;
+        font-size: 1.3rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: calc(100vh - 140px);
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+            no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        margin-top: 0;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        animation: fadeInUp 1s ease;
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--secondary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: 2px solid var(--secondary);
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 15px;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: var(--dark);
+      }
+
+      /* About Section */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 4px;
+        background: var(--secondary);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        color: #555;
+      }
+
+      .about-image {
+        flex: 1;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.5s;
+        display: block;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Services Section */
+      .services {
+        background-color: #f5f5f5;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .service-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .service-card:hover .service-img img {
+        transform: scale(1.1);
+      }
+
+      .service-content {
+        padding: 25px;
+      }
+
+      .service-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .service-content p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 20px;
+      }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 82, 118, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-overlay h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        transform: translateY(20px);
+        transition: transform 0.3s;
+      }
+
+      .project-overlay p {
+        transform: translateY(20px);
+        transition: transform 0.3s 0.1s;
+      }
+
+      .project-card:hover .project-overlay h3,
+      .project-card:hover .project-overlay p {
+        transform: translateY(0);
+      }
+
+      /* Stats Section */
+      .stats {
+        background: linear-gradient(
+            rgba(23, 32, 42, 0.9),
+            rgba(23, 32, 42, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+            no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .stat-item h3 {
+        font-size: 3.5rem;
+        color: var(--secondary);
+        margin-bottom: 10px;
+      }
+
+      .stat-item p {
+        font-size: 1.2rem;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background-color: #f5f5f5;
+      }
+
+      .testimonials-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .testimonial {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        display: none;
+      }
+
+      .testimonial.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .testimonial-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .testimonial-text::before,
+      .testimonial-text::after {
+        content: '"';
+        font-size: 2rem;
+        color: var(--secondary);
+        opacity: 0.5;
+      }
+
+      .testimonial-text::before {
+        margin-right: 5px;
+      }
+
+      .testimonial-text::after {
+        margin-left: 5px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .author-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 15px;
+      }
+
+      .author-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+
+      .author-info p {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      .testimonial-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .testimonial-nav button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        background: #ccc;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .testimonial-nav button.active {
+        background: var(--secondary);
+        transform: scale(1.2);
+      }
+
+      /* Contact Section */
+      .contact {
+        background: var(--primary);
+        color: white;
+      }
+
+      .contact .section-title h2 {
+        color: white;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .contact-info p {
+        margin-bottom: 30px;
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--secondary);
+        flex-shrink: 0;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .social-links a:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: none;
+      }
+
+      .contact-form button {
+        background: var(--secondary);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+
+      .contact-form button:hover {
+        background: #d35400;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        gap: 15px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .copyright {
+        color: #aaa;
+        font-size: 0.9rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 100;
+      }
+
+      .whatsapp-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        font-size: 30px;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-icon:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* Logo */
+      #logo-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image {
+          margin-top: 30px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding-top: 120px;
+        }
+
+        .header-container {
+          padding: 10px 0;
+          height: 70px;
+        }
+
+        .ticker-container {
+          top: 70px;
+          height: 50px;
+        }
+
+        .hero {
+          height: calc(100vh - 120px);
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: var(--dark);
+          transition: all 0.3s;
+          z-index: 999;
+          padding-top: 30px;
+          overflow-y: auto;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          padding: 20px;
+          align-items: center;
+        }
+
+        nav ul li {
+          margin: 15px 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        nav ul li a {
+          font-size: 1.2rem;
+          padding: 10px 0;
+          display: block;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn-outline {
+          margin-left: 0;
+          margin-top: 15px;
+        }
+
+        .ticker-item {
+          font-size: 0.9rem;
+          margin-right: 30px;
+        }
+
+        .ticker-icon {
+          font-size: 1rem;
+          margin-right: 8px;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .contact-info {
+          text-align: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .logo-text h1 {
+          font-size: 1.3rem;
+        }
+
+        .logo-text span {
+          font-size: 0.8rem;
+        }
+
+        #logo-img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        body {
+          padding-top: 110px;
+        }
+
+        .hero {
+          height: calc(100vh - 110px);
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header-container {
+          height: 60px;
+        }
+
+        .ticker-container {
+          top: 60px;
+          height: 50px;
+        }
+
+        .logo-text h1 {
+          font-size: 1.1rem;
+        }
+
+        .logo-text span {
+          font-size: 0.7rem;
+        }
+
+        #logo-img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          max-width: 350px;
+          margin: 0 auto;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+
+        .section-title h2::after {
+          width: 50px;
+          height: 3px;
+          bottom: -8px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .logo-text h1 {
+          font-size: 1rem;
+        }
+
+        .logo-text span {
+          font-size: 0.6rem;
+        }
+
+        #logo-img {
+          width: 45px;
+          height: 45px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="#home" class="logo">
+          <img
+            src="imagen/logo.png"
+            alt="Logo Construcciones Paco Coca"
+            id="logo-img"
+          />
+          <div class="logo-text">
+            <h1>CONSTRUCCIONES PACO COCA</h1>
+            <span>Construyendo sueños desde 1982</span>
+          </div>
+        </a>
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Menú móvil"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav">
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="landing.html" style="color: var(--secondary); font-weight: 700;"><i class="fas fa-sparkles"></i> Landing Scroll-Word</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="valoraciones.html">Valoraciones</a></li>
+            <li><a href="privacidad.html">Privacidad</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Ticker -->
+    <div class="ticker-container">
+      <div class="ticker-wrapper">
+        <div class="ticker-content" id="ticker-content">
+          <div class="ticker-item">
+            <span class="ticker-icon">📱</span> Síguenos en nuestras redes
+            sociales
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">🔨</span> Pide presupuesto sin compromiso
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">🏠</span> Más de 40 años construyendo
+            sueños
+          </div>
+          <div class="ticker-item">
+            <span class="ticker-icon">⭐</span> Calidad garantizada en todos
+            nuestros proyectos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Construyendo el futuro con excelencia</h1>
+          <p>
+            Soluciones integrales en construcción civil, reformas y proyectos
+            arquitectónicos con más de 20 años de experiencia en el sector.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn">Contáctanos</a>
+            <a href="#projects" class="btn btn-outline">Nuestros Proyectos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre Nosotros</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Construcciones Paco Coca - Líderes en el sector desde 1982</h3>
+            <p>
+              Fundada en 1982 por Francisco Coca, nuestra empresa se ha
+              consolidado como referente en el sector de la construcción,
+              ofreciendo soluciones integrales con los más altos estándares de
+              calidad.
+            </p>
+            <p>
+              Nuestro equipo de profesionales altamente cualificados combina
+              experiencia e innovación para llevar a cabo proyectos de diversa
+              envergadura, desde reformas hasta grandes construcciones civiles.
+            </p>
+            <p>
+              En Construcciones Paco Coca nos comprometemos con la excelencia,
+              la seguridad y la satisfacción total de nuestros clientes,
+              cumpliendo siempre con los plazos establecidos y los más estrictos
+              controles de calidad.
+            </p>
+            <a href="#services" class="btn">Nuestros Servicios</a>
+          </div>
+          <div class="about-image">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
+              alt="Equipo de Construcciones Paco Coca"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestros Servicios</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Construcción residencial"
+              />
+            </div>
+            <div class="service-content">
+              <div class="service-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <h3>Construcción Residencial</h3>
+              <p>
+                Diseño y construcción de viviendas unifamiliares y
+                multifamiliares con los más altos estándares de calidad y
+                confort.
+              </p>
+              <a href="#contact" class="btn">Más información</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Construcción comercial"
+              />
+            </div>
+            <div class="service-content">
+              <div class="service-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3>Construcción Comercial</h3>
+              <p>
+                Edificios de oficinas, locales comerciales y centros
+                empresariales diseñados para maximizar la productividad y
+                eficiencia.
+              </p>
+              <a href="#contact" class="btn">Más información</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Reformas integrales"
+              />
+            </div>
+            <div class="service-content">
+              <div class="service-icon">
+                <i class="fas fa-hammer"></i>
+              </div>
+              <h3>Reformas Integrales</h3>
+              <p>
+                Transformamos tus espacios con reformas completas que combinan
+                funcionalidad, diseño y calidad en cada detalle.
+              </p>
+              <a href="#contact" class="btn">Más información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Proyectos Destacados</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80"
+              alt="Residencial Las Palmeras"
+            />
+            <div class="project-overlay">
+              <h3>Residencial Las Palmeras</h3>
+              <p>24 viviendas de lujo en zona exclusiva</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Centro Comercial Plaza Mayor"
+            />
+            <div class="project-overlay">
+              <h3>Centro Comercial Plaza Mayor</h3>
+              <p>15,000 m² de superficie construida</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Edificio Corporativo Nexus"
+            />
+            <div class="project-overlay">
+              <h3>Edificio Corporativo Nexus</h3>
+              <p>12 plantas de oficinas inteligentes</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Reforma Hotel Costa Azul"
+            />
+            <div class="project-overlay">
+              <h3>Reforma Hotel Costa Azul</h3>
+              <p>Remodelación completa de 120 habitaciones</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestros Números</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3 class="counter" data-target="43">0</h3>
+            <p>Años de Experiencia</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="counter" data-target="350">0</h3>
+            <p>Proyectos Completados</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="counter" data-target="3">0</h3>
+            <p>Profesionales</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Lo que dicen nuestros clientes</h2>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial active">
+            <div class="testimonial-text">
+              Contraté a Construcciones Paco Coca para la reforma integral de mi
+              vivienda y el resultado superó todas mis expectativas.
+              Profesionales, puntuales y con una calidad de trabajo excepcional.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  loading="lazy"
+                  src="https://randomuser.me/api/portraits/women/45.jpg"
+                  alt="María González"
+                />
+              </div>
+              <div class="author-info">
+                <h4>María González</h4>
+                <p>Cliente Residencial</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-text">
+              Como promotora inmobiliaria, hemos trabajado con muchas
+              constructoras, pero Construcciones Paco Coca destaca por su
+              profesionalismo, cumplimiento de plazos y atención al detalle.
+              Nuestra mejor decisión.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  loading="lazy"
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Carlos Méndez"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Carlos Méndez</h4>
+                <p>CEO Inmobiliaria Sol</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-text">
+              El edificio corporativo que nos construyeron cumple con todos los
+              estándares de calidad y eficiencia energética. El equipo de Paco
+              Coca supo entender nuestras necesidades y plasmarlas en el
+              proyecto.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  loading="lazy"
+                  src="https://randomuser.me/api/portraits/women/68.jpg"
+                  alt="Ana Torres"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Ana Torres</h4>
+                <p>Directora Financiera Nexus</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-nav">
+            <button class="active" aria-label="Mostrar testimonio 1"></button>
+            <button aria-label="Mostrar testimonio 2"></button>
+            <button aria-label="Mostrar testimonio 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contacto</h2>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Ponte en contacto con nosotros</h3>
+            <p>
+              Estamos listos para hacer realidad tu proyecto de construcción.
+              Contáctanos para una consulta gratuita y sin compromiso.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <p>Calle Constructoras 123, Edificio Obra, Planta 4</p>
+                  <p>28080 Madrid, España</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <p>+34 616 385 068</p>
+                  <p>Lunes a Viernes: 8:00 - 18:00</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <p>paco_coca@hotmail.com</p>
+                  <p>@construccionespacococa</p>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/construccionespacococa/"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="form-contacto">
+              <input type="text" placeholder="Nombre completo" required />
+              <input type="email" placeholder="Correo electrónico" required />
+              <input type="tel" placeholder="Teléfono" />
+              <input type="text" placeholder="Asunto" />
+              <textarea
+                placeholder="Cuéntanos sobre tu proyecto..."
+                required
+              ></textarea>
+              <button type="submit">Enviar Mensaje</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="#home">Inicio</a>
+          <a href="#about">Nosotros</a>
+          <a href="#services">Servicios</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#contact">Contacto</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 1982 Construcciones Paco Coca | Todos los derechos reservados
+            | Powered Javier Antón
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+      <a
+        href="https://wa.me/34616385068"
+        target="_blank"
+        class="whatsapp-icon"
+        aria-label="Contactar por WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <script>
+      // Mobile Menu
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const nav = document.getElementById("nav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = nav.classList.contains("active")
+          ? "hidden"
+          : "";
+      });
+
+      // Cerrar menú al hacer clic en un enlace
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          document.body.style.overflow = "";
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          if (this.getAttribute("href") === "#") return;
+
+          e.preventDefault();
+
+          if (nav.classList.contains("active")) {
+            nav.classList.remove("active");
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = "";
+          }
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 120,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Testimonials slider
+      const testimonials = document.querySelectorAll(".testimonial");
+      const testimonialNavBtns = document.querySelectorAll(
+        ".testimonial-nav button"
+      );
+      let currentTestimonial = 0;
+      let testimonialInterval;
+
+      function showTestimonial(index) {
+        testimonials.forEach((testimonial) =>
+          testimonial.classList.remove("active")
+        );
+        testimonialNavBtns.forEach((btn) => btn.classList.remove("active"));
+
+        testimonials[index].classList.add("active");
+        testimonialNavBtns[index].classList.add("active");
+        currentTestimonial = index;
+      }
+
+      function startTestimonialRotation() {
+        testimonialInterval = setInterval(() => {
+          currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+          showTestimonial(currentTestimonial);
+        }, 5000);
+      }
+
+      testimonialNavBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          clearInterval(testimonialInterval);
+          showTestimonial(index);
+          startTestimonialRotation();
+        });
+      });
+
+      // Iniciar rotación automática
+      startTestimonialRotation();
+
+      // Pausar rotación cuando el usuario interactúa
+      document
+        .querySelector(".testimonials-slider")
+        .addEventListener("mouseenter", () => {
+          clearInterval(testimonialInterval);
+        });
+
+      document
+        .querySelector(".testimonials-slider")
+        .addEventListener("mouseleave", () => {
+          startTestimonialRotation();
+        });
+
+      // Counter animation
+      const counters = document.querySelectorAll(".counter");
+      const speed = 200;
+
+      function animateCounters() {
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounters, 1);
+          } else {
+            counter.innerText = target;
+          }
+        });
+      }
+
+      // Start counters when section is in view
+      const statsSection = document.querySelector(".stats");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            animateCounters();
+            observer.unobserve(statsSection);
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+
+      // Form submission
+      const contactForm = document.getElementById("form-contacto");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert(
+            "Gracias por tu mensaje. Nos pondremos en contacto contigo pronto."
+          );
+          contactForm.reset();
+        });
+      }
+
+      // Improved infinite ticker animation
+      function setupTicker() {
+        const tickerContent = document.getElementById("ticker-content");
+        if (!tickerContent) return;
+
+        // Clone items for seamless looping
+        const items = document.querySelectorAll(".ticker-item");
+        items.forEach((item) => {
+          const clone = item.cloneNode(true);
+          tickerContent.appendChild(clone);
+        });
+
+        // Calculate total width of all items
+        let totalWidth = 0;
+        items.forEach((item) => {
+          totalWidth += item.offsetWidth + 50; // 50px margin-right
+        });
+
+        // Create animation
+        const keyframes = `
+                @keyframes ticker {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-${totalWidth}px); }
+                }
+            `;
+
+        // Add animation to style element
+        const style = document.createElement("style");
+        style.innerHTML = keyframes;
+        document.head.appendChild(style);
+
+        // Apply animation to ticker content
+        tickerContent.style.animation = `ticker ${
+          items.length * 5
+        }s linear infinite`;
+
+        // Reset animation when it ends to create infinite loop
+        tickerContent.addEventListener("animationiteration", () => {
+          // This ensures smooth continuous animation
+        });
+      }
+
+      // Initialize ticker when DOM is loaded
+      document.addEventListener("DOMContentLoaded", setupTicker);
+    </script>
+  </body>
+</html>
